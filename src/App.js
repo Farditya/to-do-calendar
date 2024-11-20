@@ -1,20 +1,16 @@
+import React, {useState} from "react";
+import TaskForm from "./components/TaskForm";
 
 function App() {
+  const [tasks, setTasks] = useState([]);
+  const addTask = (task) => {
+    setTasks([...tasks, task]);
+  };
   return (
-    <div className="flex justify-center items-center h-screen">
-      <header className="text-center">
-        <h1 className="text-4xl font-sans font-bold mb-3">React App</h1>
-        <a
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mx-auto p-4">
+    <h1 className="text-2xl font-bold mb-4">To do list with calendar</h1>
+      <TaskForm onAddTask={addTask} />
     </div>
   );
 }
-
 export default App;
