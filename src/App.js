@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
+import Calendar from "./components/Calendar";
 
 function App() {
   const [tasks, setTasks] = useState([]);
