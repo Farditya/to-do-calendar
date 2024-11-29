@@ -1,12 +1,12 @@
-const TaskList = ({ tasks, onDragStart, onDelete }) => {
+const TaskList = ({ tasks =[], onDragStart = () => {}, onDelete = () => {} }) => {
     return (
         <ul className="space-y-2">
             {tasks.map((task) => (
                 <li
                     key={task.id}
                     className="bg-white border border-gray-300 rounded-lg shadow-md p-4"
-                    draggable
-                    onDragStart={(e) => onDragStart(e, task)}
+                    draggable = "true"
+                    onDragStart={(e) => e.dataTransfer.setData("task", JSON.stringify(task))}
                 >
                     <div className="flex justify-between items-center gap-4">
                         <div className="flex items-center space-x-2">
